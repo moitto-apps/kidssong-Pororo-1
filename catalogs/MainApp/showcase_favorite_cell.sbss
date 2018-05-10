@@ -1,0 +1,10 @@
+import showcase_videos_cell.sbss
+
+#btn_favorite: image=subview_btn_favorite_selected.png, \
+                width=44dp, height=44dp, position=absolute, gravity=top-right, x=-5dp, y="(1pw*9)/16+10dp"
+
+-- 선택된 셀 --
+
+if $STATE == "focused"
+    #btn_favorite: image=subview_btn_favorite_selected_focus.png
+end

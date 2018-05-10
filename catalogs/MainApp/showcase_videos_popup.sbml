@@ -1,0 +1,123 @@
+=begin popup
+
+=object youtube: video-id="${video-id}", id=Y_001, group=group.player, \
+                autoplay=yes, \
+                info-hidden=yes, \
+                control-hidden=yes, \
+                action-when-finished=#{action.finished#{check.continue}}, params-when-finished="#{params.finished#{check.continue}}", \
+                action-when-not-available=hide, params-when-not-available="target=object,object=section_waiting", \
+                action-when-preview=show, params-when-preview="target=object,object=section_waiting,post-action=hide,post-params=\"target=object,object=image.preview\"", \
+                action-when-playing=hide, params-when-playing="target=object,object=section_waiting", \
+                style=youtube, alt="플레이어"
+=object button: group=group.player, \
+                action=show, target=object, object=section_control, \
+                post-action=start, post-params="target=object,object=timer_control", \
+                style=btn_show.control, alt="콘트롤러 보이기"
+=object timer: id=timer_control, \
+                time="00:00:03", repeat-count=1, autostart=no, \
+                action-when-expired=hide, \
+                params-when-expired="target=object,object=section_control", \
+                alt="콘트롤 숨기기"
+
+=object input: id=action.finished.serial, value=next
+=object input: id=params.finished.serial, value="target=object,object=S_VIDEOS_001,player=Y_001"
+=object input: id=action.finished, value="popup-close"
+=object input: id=params.finished, value=""
+
+
+=object section: section=control, id=section_control, group=group.control, style=section_control, alt="콘트롤러 섹션"
+
+
+=begin control: id=control, alt="콘트롤러"
+=object blank: style=img_dim
+=object button: id=btn.player, \
+                action=hide, target=object, object=section_control, \
+                style=btn_hide.control, alt="콘트롤러 감추기"
+=object button: action=submit, form=lock, showcase=settings, display-unit=S_SETTINGS, \
+                action-when-done=show, params-when-done="target=group,group=group.control,toggle=yes", \
+                post-action=start, post-params="target=group,group=timer_message", \
+                style=btn_lock, alt="락 버튼"
+=object timer: group=timer_message, \
+                time="00:00:00.010", repeat-count=1, autostart=no, \
+                action-when-expired=show, \
+                params-when-expired="target=object,object=section_message", \
+                alt="잠김 메시지 띄우기"
+=object timer: group=timer_message, \
+                time="00:00:03", repeat-count=1, autostart=no, \
+                action-when-expired=hide, \
+                params-when-expired="target=object,object=section_message", \
+                alt="잠김 메시지 없애기"
+=object label: text="${title}", owner=S_VIDEOS_001, style=label_title, alt="영상 제목"
+=object button: type=play, action=play, target=owner, owner=Y_001, hides-when-selected=yes, \
+                style=btn_control.play, alt="재생"
+=object button: type=pause, action=pause, target=owner, owner=Y_001, hides-when-selected=yes, \
+                alt="중지", style=btn_control.pause
+=object button: type=prev, action=prev, target=object, object=S_VIDEOS_001, alt="이전 영상", style=btn_prev
+=object button: type=next, action=next, target=object, object=S_VIDEOS_001, alt="다음 영상", style=btn_next
+=begin slider
+=object slider: type=time, action=seek, time="#_", target=owner, owner=Y_001, \
+                action-when-changed=restart, params-when-changed="target=object,object=timer_control", \
+                style=slider
+=object label: type=time, target=owner, owner=Y_001, style=label_control.time
+=object label: type=time, inverts-value=yes, target=owner, owner=Y_001, style=label_control.time.inverts
+=end slider
+=object button: action=pause, target=owner, owner=Y_001, \
+                post-action=popup-close, \
+                style=btn_close
+
+=begin form: form=lock
+=object input: id=locked, value=yes
+=end form
+
+=end control
+
+=end popup
+
+
+
+
+=object section: hidden=yes, section=message, id=section_message, style=section_message, alt="잠김 메시지 섹션"
+=begin message: id=message
+=object label: id=label_message, text="화면이 잠겼습니다", style=label_message
+=object image: style=img_message
+=begin note
+화면 왼쪽 상단 버튼을 누르면 화면 잠금을 풀 수 있습니다.
+=end note
+=end message
+
+
+=object section: id=section_saver, group=group.control, section=section_lock, hidden=yes, \
+                style=section_saver, alt="잠김 화면 섹션"
+
+=begin screensaver: id=section_lock, alt="잠김 화면"
+
+=object timer: id=timer_unlock, \
+                time="00:00:01.500", repeat-count=1, autostart=no, \
+                action-when-expired=hide, \
+                params-when-expired="target=object,object=btn.unlock", \
+                alt="언락 버튼 숨기기"
+=object button: action=show, target=object, object=btn.unlock, \
+                post-action=start, post-params="target=object,object=timer_unlock", \
+                style=btn_resume
+=object button: hidden=yes, id=btn.unlock, \
+                action=submit, form=unlock, showcase=settings, display-unit=S_SETTINGS, \
+                action-when-done=show, params-when-done="target=group,group=group.control,toggle=yes", \
+                post-action=start, post-params="target=object,object=timer_control", \
+                alt="언락 버튼", style=btn_unlock
+
+=begin form: form=unlock
+=object input: id=locked, value=no
+=end form
+
+=end screensaver
+
+
+
+=object section: id=section_waiting, section=waiting, style=section_waiting, alt="플레이 대기 중"
+=begin waiting: id=waiting
+=object image: style=img_waiting
+=object label: text="${title}", owner=S_VIDEOS_001, style=label_waiting
+=object label: text="", style=label_waiting.small
+=object label: text="동영상을 플레이합니다", style=label_waiting.small
+=end waiting
+

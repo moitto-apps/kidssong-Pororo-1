@@ -1,0 +1,32 @@
+import themes.sbss
+
+-- 헤더 --
+
+#section_header: width=1pw, height=60dp, content-background-color=$THEME_COLOR_00
+#label_title: width="1pw-200dp", height=40dp, \
+                position=absolute, gravity=center, content-padding="0 0 0 10dp", \
+                font-family=$SANSSERIF_MEDIUM, text-color=$THEME_COLOR_101, text-align=center, line-break-mode=tail-truncation
+#btn_favorite: image=subview_btn_favorite_list.png, width=50dp, height=50dp, position=absolute, gravity=left, x=10dp
+#check_continue: width=50dp, height=50dp, position=absolute, gravity=right, x=-10dp, \
+                image=subview_btn_repeat_off.png, selected-image=subview_btn_repeat_on.png
+/catalog/control: display=none
+
+if $SCREEN_WIDTH > "5"
+    #label_title: font-size=1.4
+else
+    #label_title: font-size=1.3
+end
+
+
+-- 비디오 --
+
+#showcase_videos: width=1pw, row-count=1, cell-spacing=0.05pw, content-margin="0 0.05pw", more-count=50, position=absolute
+#edge_swipe: width=50dp, height="1ph-60dp", position=absolute, gravity=bottom-left
+
+/catalog: page-background-color=$THEME_COLOR_06
+
+if $SCREEN_WIDTH > "5"
+    #showcase_videos: height=0.6ph, cell-size="0.4pw, 0.6ph", gravity=center
+else
+    #showcase_videos: height="1ph-120dp", cell-size="0.5pw, (1ph-120dp)", gravity=top, y=90dp
+end

@@ -1,0 +1,91 @@
+import themes.sbss
+
+/popup: page-background-color=$BLACK_COLOR
+
+
+-- 플레이어 --
+
+#youtube: width=1pw, height="(1pw*9)/16", position=absolute, gravity=center
+#btn_show.control: width=1pw, height="1ph-60dp", position=absolute, gravity=bottom, \
+                label-font-family=$SANSSERIF_LIGHT, label-color=$THEME_COLOR_100
+
+
+-- 콘트롤러 --
+
+#section_control: hidden=yes, width=1pw, height=1ph, position=absolute
+#img_dim: width=1pw, height=1ph, color=$BLACK_COLOR_DIM
+#btn_hide.control: width=1pw, height="1ph-40dp", position=absolute, gravity=bottom, \
+                label-font-family=$SANSSERIF_LIGHT, label-color=$THEME_COLOR_100
+#btn_lock: image=subview_btn_lock.png, width=50dp, height=50dp, \
+                position=absolute, gravity=top-left, x=10dp, y=15dp
+#label_title: width="1pw-150dp", height=60dp, \
+                position=absolute, gravity=top, y=10dp, content-padding="0 0 0 10dp", \
+                font-family=$SANSSERIF_MEDIUM, text-align=top, text-color=$THEME_COLOR_101, line-break-mode=tail-truncation
+#slider: width=0.8pw, height=20dp, \
+                scroll-thumb-image=mediabar_scroll_thumb_white.png, \
+                track-color=$WHITE_COLOR_DIM, scroll-color=$WHITE_COLOR
+#label_control.time: width=60dp, height=20dp, align=left, \
+                font-family=$SANSSERIF_LIGHT, text-align=left, text-color=$WHITE_COLOR, font-size=1, \
+                margin="0 0 0 0.1pw"
+#label_control.time.inverts: width=60dp, height=20dp, align=right, \
+                font-family=$SANSSERIF_LIGHT, text-align=right, text-color=$WHITE_COLOR, font-size=1, \
+                margin="-20dp 0.1pw 0 0"
+#btn_control.play: image=mediabar_btn_play_white.png, width=44dp, height=44dp, \
+                position=absolute, gravity=center
+#btn_control.pause: image=mediabar_btn_pause_white.png, width=44dp, height=44dp, \
+                position=absolute, gravity=center
+#btn_prev: image=mediabar_btn_prev_white.png, width=44dp, height=44dp, \
+            position=absolute, gravity=center, x=-130dp
+#btn_next: image=mediabar_btn_next_white.png, width=44dp, height=44dp, \
+            position=absolute, gravity=center, x=130dp
+#btn_close: image=subview_btn_close.png, width=50dp, height=50dp, \
+            position=absolute, gravity=top-right, x=-10dp, y=15dp
+/popup/control: display=none
+/popup/control/slider: display=block, width=1pw, height=44dp, position=absolute, gravity=bottom, text-align=center
+
+if $SCREEN_WIDTH > "5"
+    #label_title: font-size=1.4
+    /popup/control/slider: y=-20dp
+else
+    #label_title: font-size=1.3
+    /popup/control/slider: y=-10dp
+end
+
+
+-- 잠김 메시지 --
+
+#section_message: width=240dp, height=240dp, position=absolute, gravity=center, \
+                content-background-color=$THEME_COLOR_00_DIM, content-border-radius=8dp
+#label_message: height=0.3ph, font-family=$SANSSERIF_BOLD, text-color=$WHITE_COLOR, font-size=1.2
+#img_message: filename=subview_btn_unlock.png, width=44dp, height=44dp, align=left
+/message: display=none, padding=0.1pw
+/message/note: font-family=$SANSSERIF_MEDIUM, text-color=$WHITE_COLOR, font-size=1.1, \
+                line-spacing=0.2em, paragraph-spacing=0.2em
+
+
+-- 잠김 화면 --
+
+#section_saver: width=1pw, height=1ph, position=absolute, gravity=center
+#btn_resume: width=1pw, height=1ph, position=absolute, gravity=center, \
+            label-align=center, label-font-size=1.4, \
+            label-font-family="$SANSSERIF_BOLD", label-color=$DEFAULT_COLOR
+#btn_unlock: image=subview_btn_unlock.png, width=50dp, height=50dp, position=absolute, gravity=top-left, x=10dp, y=15dp
+/screensaver: display=none
+
+if "${locked}" == "yes"
+   #section_saver: hidden=no 
+end
+
+
+-- 플레이 대기 중 --
+
+#section_waiting: hidden=yes, width=240dp, height=240dp, position=absolute, gravity=center, \
+                content-background-color=$THEME_COLOR_00_DIM, content-border-radius=8dp
+#img_waiting: filename=icon.png, width=0.3pw, height=0.3pw, margin="0 0 0.1pw 0"
+#label_waiting: width=0.9pw, height=0.2pw, \
+                font-family=$SANSSERIF_BOLD, font-size=1.2, text-color=$THEME_COLOR_101, \
+                text-align=center, number-of-lines=2, line-break-mode=tail-truncation
+#label_waiting.small: width=0.9pw, height=0.1pw, \
+                font-family=$SANSSERIF_MEDIUM, font-size=1, text-color=$THEME_COLOR_101, text-align=center, \
+                text-align=center, line-break-mode=tail-truncation                
+/waiting: display=none, padding="0.1pw 0"

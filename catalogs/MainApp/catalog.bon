@@ -1,0 +1,10 @@
+{
+    "autorun":{},
+    "database-version":"2.0",
+    "default-subview":"V_HOME",
+    "has-new-notices":"no",
+    "orientations":"landscape",
+    "title":"뽀로로 인기동요",
+    "uses-database":"yes",
+    "version":"1.0"
+}

@@ -1,0 +1,22 @@
+=begin catalog: guide-popup=S_GUIDE_001
+
+=object section: section=control.simple, style=section_header, alt="헤더"
+=begin control: id=control.simple
+=object button: action=subview, subview=V_FAVORITE, target=popup, style=btn_favorite
+=object checkbox: id=check.continue, value=.serial, saves-state=yes, style=check_continue
+=object label: text="${title}", style=label_title, alt="영상 제목"
+=end control
+
+
+=object showcase: type=youtube, alternate-name=videos, playlist="${playlist}", id=S_VIDEOS_001, \
+                data-downloadable=yes, loads-more=yes, \
+                selectable=yes, action-when-selected=play, params-when-selected="target=owner", \
+                alternate-play-action=popup, alternate-play-params="auxiliary=S_SETTINGS", \
+                autofocus=yes, loop=yes, \
+                history-enabled=yes, history="${id}", \
+                keeps-offscreen-cells=yes, reloads-when-appear=yes, \
+                style=showcase_videos
+
+=object blank: style=edge_swipe
+
+=end catalog

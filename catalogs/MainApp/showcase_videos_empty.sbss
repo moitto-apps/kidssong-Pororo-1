@@ -1,0 +1,11 @@
+import themes.sbss
+
+#img_icon: filename=icon.png, width=60dp, height=60dp
+/cell: display=block, position=absolute, gravity=center, y=-30dp, \
+        font-family=$SANSSERIF_MEDIUM, text-color=$THEME_COLOR_00, text-align=center
+
+if $SCREEN_WIDTH > "5"
+    /cell: font-size=1.3
+else
+    /cell: font-size=1.2
+end

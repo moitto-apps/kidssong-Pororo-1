@@ -1,0 +1,6 @@
+import S_GUIDE_001_popup.sbss
+
+#img_repeat: filename=subview_btn_repeat_on.png, width=44dp, height=44dp
+#img_favorite: filename=subview_btn_favorite_deselected_focus.png, width=44dp, height=44dp
+#img_lock: filename=subview_btn_lock.png, width=44dp, height=44dp
+#label_note: height=44dp, font-family=$SANSSERIF_MEDIUM, text-color=$WHITE_COLOR

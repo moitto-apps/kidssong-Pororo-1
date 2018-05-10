@@ -1,0 +1,7 @@
+=begin main
+
+=object blank: id=container, style=blank_container
+
+=end main
+
+=object widget: width=0.5pw, height=(0.5pw*2)/3, position=absolute, gravity=top-left, y=50dp, display=none

@@ -1,0 +1,19 @@
+=begin cell
+
+=object section: section=video, style=section_video
+
+=begin video: id=video
+=object image: image-url="${thumbnail.high}", image-downloadable=yes, style=img_thumb
+
+=object label: text="${title}", style=label_title
+
+=object button: id=checkbox.favorite, \
+                action=categorize, categories-to-remove=C_FAVORITE, display-unit="${id}", \
+                post-action=remove, post-params="target=object,object=S_VIDEOS_001,display-unit=\"${id}\"", \
+				style=btn_favorite
+
+=object label: text="${duration}", style=label_duration
+
+=end video
+
+=end cell

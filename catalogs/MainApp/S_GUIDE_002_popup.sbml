@@ -1,0 +1,13 @@
+=begin popup
+
+=object section: section=guide, style=section_guide
+
+=object button: action=popup-close, label="확인", style=btn_close
+
+=end popup
+
+=begin body: id=guide
+=(object image: style=img_repeat)= =(object label: text="연속 재생", style=label_note)=
+=(object image: style=img_favorite)= =(object label: text="즐겨 찾기", style=label_note)=
+=(object image: style=img_lock)= =(object label: text="화면 잠금", style=label_note)=
+=end body

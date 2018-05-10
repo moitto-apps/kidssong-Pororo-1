@@ -1,0 +1,5 @@
+=begin cell
+
+=object image: image-url="${thumbnail.high}", image-downloadable=yes, style=img_thumb
+
+=end cell

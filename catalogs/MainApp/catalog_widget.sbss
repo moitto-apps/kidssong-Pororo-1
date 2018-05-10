@@ -1,0 +1,11 @@
+import themes.sbss
+
+#img_icon: filename=icon.png, width=0.4ph, height=0.4ph, position=absolute, gravity=top, y=0.2ph, \
+			content-border-radius=10dp
+#label_title: width=0.9pw, height=0.3ph, position=absolute, gravity=top, y=0.6ph, \
+			font-family=$SANSSERIF_MEDIUM, text-color=$THEME_COLOR_100, font-size=0.9, text-align=center, \
+			line-break-mode=tail-truncation
+#showcase_videos: width=1pw, height=1ph, column-count=1, max-cell-count=1, cell-size="1pw, 1ph", \
+			position=absolute, gravity=top
+
+/catalog: page-background-color=$THEME_COLOR_00

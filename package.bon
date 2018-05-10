@@ -1,0 +1,12 @@
+{
+	"id":"io.moitto.kidssong.Proro.1",
+	"language": "ko",
+	"version": "1.0",
+	"title":"뽀로로 인기동요",
+	"description": "뽀로로 시리즈",
+	"channel": {
+		"id": "io.moitto.kidssong.Proro",
+		"title":"뽀로로 시리즈",
+		"description": ""
+	}
+}

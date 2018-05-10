@@ -1,0 +1,3 @@
+import themes.sbss
+
+#img_thumb: width=1pw, height=1ph, scale-mode=fill, position=absolute

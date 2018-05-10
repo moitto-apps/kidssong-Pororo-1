@@ -1,0 +1,32 @@
+=begin cell
+
+=object section: section=video, style=section_video
+
+=begin video: id=video
+=object image: image-url="${thumbnail.high}", image-downloadable=yes, style=img_thumb
+
+=object label: text="${title}", style=label_title
+
+=object checkbox: type=categorize, id=checkbox.favorite, \
+                display-unit=${id}_FAVORITE, \
+                categories-to-add=C_FAVORITE, \
+                action-when-selected=categorize, \
+                params-when-selected="form=data.${id},display-unit=${id}_FAVORITE,showcase=favorite,categories-to-add=C_FAVORITE", \
+                action-when-deselected=categorize, \
+                params-when-deselected="categories-to-remove=C_FAVORITE,display-unit=${id}_FAVORITE,post-action=remove,post-params=\"display-unit=${id}_FAVORITE,showcase=favorite\"", \
+                style=check_favorite
+
+=object label: text="${duration}", style=label_duration
+
+=end video
+
+=begin data: form=data.${id}
+=object input: id=id, value="${id}_FAVORITE"
+=object input: id=video-id, value="${video-id}"
+=object input: id=title, value="${title}"
+=object input: id=thumbnail.high, value="${thumbnail.high}"
+=object input: id=duration, value="${duration}"
+=object input: id=favorites, value="yes"
+=end data
+
+=end cell

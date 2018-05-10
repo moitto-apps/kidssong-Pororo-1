@@ -1,0 +1,16 @@
+=begin popup
+
+=object section: section=guide, style=section_guide
+
+=object button: action=popup-close, label="다음", \
+				post-action=popup, post-params="display-unit=S_GUIDE_002", \
+				style=btn_close
+
+=end popup
+
+=begin body: id=guide
+=begin title
+뽀로로 인기동요
+=end title
+뽀로로 시리즈
+=end body

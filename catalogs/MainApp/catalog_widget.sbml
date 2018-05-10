@@ -1,0 +1,13 @@
+=begin catalog
+
+=object image: style=img_icon
+=object label: text="${title}", style=label_title
+
+=object showcase: type=youtube, alternate-name=widget, id=S_VIDEOS_002, \
+				playlist="${playlist}", \
+                data-downloadable=yes, \
+				ignore-touches=yes, \
+                keeps-offscreen-cells=yes, \
+				style=showcase_videos
+
+=end catalog

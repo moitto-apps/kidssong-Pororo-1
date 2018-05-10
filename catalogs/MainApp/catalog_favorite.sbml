@@ -1,0 +1,22 @@
+=begin catalog
+
+=object section: section=control.simple, style=section_header, alt="헤더"
+=begin control: id=control.simple
+=object button: action=subview-back, style=btn_close
+=object checkbox: id=check.continue, value=.serial, saves-state=yes, style=check_continue
+=object label: text="좋아하는 영상", style=label_title, alt="영상 제목"
+=end control
+
+
+=object showcase: type=media, name=favorite, id=S_VIDEOS_001, category=C_FAVORITE, \
+                data-downloadable=yes, loads-more=yes, \
+                selectable=yes, action-when-selected=play, params-when-selected="target=owner", \
+                alternate-play-action=popup, alternate-play-params="alternate-name=videos,auxiliary=S_SETTINGS", \
+                autofocus=yes, loop=yes, \
+                history-enabled=yes, history="${id}", \
+                keeps-offscreen-cells=yes, \
+                style=showcase_videos
+
+=object blank: style=edge_swipe
+
+=end catalog
